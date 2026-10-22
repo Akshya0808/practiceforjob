@@ -1,4 +1,4 @@
-lerning git pull
+learning git pull just for practice
 - Configure playwright agent locally with below command:      npx playwright init-agents --loop=vscode
   it will create github folder and add custom agent in the - github folder.
 → planner : This agent help to create comprehensive test plan.
