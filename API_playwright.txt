@@ -1,0 +1,92 @@
+API Testing with Playwright - Project Setup
+
+Step 1 - Create a new folder for API Testing Project
+Step 2 - Open the folder in VS Code
+Step 3 - Open terminal on the location of the folder and run command  npm init playwright@latest
+
+Step 4 - Check if demo tests are running fine using commands   npx playwright test
+npx playwright test --ui
+npx playwright show-report
+
+Step 5 - Create a new file for API Tests (api-tests.spec.js)
+
+
+*How to run a GET API Request *
+
+Step 1 - Add imports       
+import { test, expect } from '@playwright/test';  
+
+Step 2 - Create a test using request context    
+test.only('Demo API Test', async({request}) =＞ {  }) 
+
+Step 3 - Send a GET request & store response in a variable 
+const response = await request.get('https://reqres.in/api/users/2')
+
+Step 4 - Verify the status code of the response is 200
+expect(response.status()).toBe(200);
+
+Step 5 - Check response contains some text    
+const text = await response.text();
+expect(text).toContain('Janet');
+
+Step 6 - Write response on the console    
+console.log(await response.json());
+
+Step 7 - Run and check results
+
+
+How to run a POST API Request
+
+Step 1 - Add imports       
+import { test, expect } from '@playwright/test';  
+
+Step 2 - Create a test using request context    
+test.only('Demo API POST request’, async({request}) =＞ {...}) 
+
+Step 3 - Send a POST request along with request body & store response in a variable
+
+const response = await request.post("https://reqres.in/api/users", {
+        data: {
+            "name": "Raghav",
+            "job": "teacher"
+        }
+  })
+
+Step 4 - Verify response status code is 201
+expect(response.status()).toBe(201);
+
+Step 5 - Check response contains some text    
+const text = await response.text();
+expect(text).toContain(Raghav);
+
+Step 6 - Write response on the console    
+console.log(await response.json());
+
+Step 7 - Run and check results
+
+
+How to run a PUT API Request
+
+test('Demo API PUT Request', async ({ request }) =＞ {
+
+    const response = await request.put("https://reqres.in/api/users/2", {
+        data: {
+            "name": "Raghav",
+            "job": "teacher"
+        }
+    })
+    expect(response.status()).toBe(200);
+    const text = await response.text();
+    expect(text).toContain('Raghav');
+    console.log(await response.json());
+
+})
+
+
+How to run a DELETE API Request
+
+test('Demo API DELETE Request', async ({ request }) =＞ {
+
+    const response = await request.delete("https://reqres.in/api/users/2")
+    expect(response.status()).toBe(204);
+})

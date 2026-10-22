@@ -1,0 +1,24 @@
+1 
+alert =   alert 2 type ke hote hai 
+
+1st- html page popup jaise koi advertisement 
+2nde - javascript 
+
+note:  htmp popup hai use htane k liye cross button ka locator dhund k use cancel krdo 
+
+and agar javascript popup haio to 
+
+   page.on("dialog", async (dialog) => { 
+      console.log("Popup message:", dialog.message()); 
+      await dialog.accept();
+            or
+      await dialog.dismiss();
+            or agar sath me kuch input dena h
+      await dialog.accept("akshay"); });
+
+
+2 - i frame 
+
+await pag .locator("#sampleIframe").contentFrame().getByRole("link", { name: "Learn more" }).click();
+
+

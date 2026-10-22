@@ -1,0 +1,35 @@
+1 tag ========
+
+test("Login", {tag:"@smoke"}, async({page,browserName}) => {
+
+npx playwright  test demo.spec.js --grep "@smoke" --heraded
+npx playwright test --grep "@smoke|@regression"
+
+
+2 Alert======= javascript popup
+
+   page.on("dialog", async (dialog) => { 
+      console.log("Popup message:", dialog.message()); 
+      await dialog.accept();
+            or
+      await dialog.dismiss();
+            or agar sath me kuch input dena h
+      await dialog.accept("akshay"); });
+
+3 i frame ========= 
+
+await page .locator("#sampleIframe").contentFrame().getByRole("link", { name: "Learn more" }).click();
+or
+await page.frameLocator("#sampleIframe").getByRole("link", { name: "Learn more" }).click({timeout:40_000});
+
+4 screenshot =  await page.screenshot({path: "screenshots/dashboard.png"});
+
+5 trace = npx playwright show-trace "test-results\Demoweb-groupoftest-Registration-chromium\trace.zip" 
+
+6 test.skip(browserName!=="chromium", "only run in chrome")
+
+7 await page.waitForTimeout(5000);
+
+8 AI = npx playwright init-agents --loop=vscode (GENERATOR, PLANNER,  FILLER )
+
+

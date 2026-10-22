@@ -1,0 +1,20 @@
+Day 1: POM — Page Object Model
+
+1. POM kya hota hai?
+Simple language mein samjho:
+Maan lo tum Demo Web Shop website automate kar rahe ho. Us website par Login, Registration aur Shopping Cart jaise modules hain.
+Agar tum saara code ek hi test file mein likhoge, toh code bada aur difficult to maintain ho jayega.
+POM mein hum:
+- Page ki locators aur actions ko alag page files mein rakhte hain.
+- Test cases aur assertions ko test files mein rakhte hain.
+
+Code	                Simple meaning
+class LoginPage 	Login page ki class banayi
+constructor(page)	Page object ko receive kiya
+this.page = page	Page ko class mein store kiya
+this.username	        Username ka locator banaya
+async login()    	Login karne ka reusable method
+new LoginPage(page)	LoginPage ka object banaya
+loginPage.login()	Login method ko call kiya
+
+Yaad rakho: Page file mein locators aur actions; test file mein test scenario aur verification.

@@ -1,0 +1,15 @@
+- Configure playwright agent locally with below command:      npx playwright init-agents --loop=vscode
+  it will create github folder and add custom agent in the - github folder.
+→ planner : This agent help to create comprehensive test plan.
+→ generator: This agent write autonation with reference of test planner.
+→ healer: This agent will execute the test cases and fix failures.
+
+
+It will also create a vscode folder, then playwright MCP configuration is availa → filename: pLaywright mcp server (mcp-json)
+Create a coprehensive test plan with help the planner.
+-> go At chat window. select agent
+
+
+4. Playwright MCP Server क्या है?  mcp is a mediator for copiloy and open browser
+MCP का पूरा नाम है Model Context Protocol।
+आसान भाषा में, MCP एक ऐसा तरीका है जिससे AI Agent किसी Tool से जुड़कर उसका इस्तेमाल कर सकता है।

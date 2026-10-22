@@ -1,0 +1,43 @@
+Playwright mein hierarchy aise samjho:
+
+Browser → Browser Context → Page → Locators
+
+Real-life example
+
+Socho Chrome Browser ek building hai.
+
+Browser = poori building                      == Chromium browser
+Browser Context = alag-alag independent flat  == cookies , local storage, session storage   ( session independent hote hai ek browser 2 user independent apni apni mail id login kr sakte h)
+Page = flat ke andar ek room/tab              == await page.goto("https://www.saucedemo.com/");   app launch krna 
+Locator = room ke andar kisi particular obj   == object ko find karna 
+
+
+suppose hme logiun function chlana hai to playwright me hm ek chrome browser me 2 alag lag user login kr sakte haio playwrighjt script me
+
+example of code
+
+import { chromium } from "@playwright/test";
+
+(async () => {
+
+    const browser = await chromium.launch({ headless: false });
+
+    // User 1 ka independent session
+    const context1 = await browser.newContext();
+    const page1 = await context1.newPage();
+
+    await page1.goto("https://www.saucedemo.com/");
+    await page1.locator("#user-name").fill("standard_user");
+    await page1.locator("#password").fill("secret_sauce");
+    await page1.locator("#login-button").click();
+
+    // User 2 ka independent session
+    const context2 = await browser.newContext();
+    const page2 = await context2.newPage();
+
+    await page2.goto("https://www.saucedemo.com/");
+    await page2.locator("#user-name").fill("problem_user");
+    await page2.locator("#password").fill("secret_sauce");
+    await page2.locator("#login-button").click();
+
+})();  

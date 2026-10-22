@@ -1,0 +1,70 @@
+await expect(locator).toBeVisible();
+
+await expect(page.getByRole("button", { name: "Login" })).toBeVisible();
+
+
+
+const actual = 10;
+
+expect(actual).toBe(10);
+
+
+
+
+ASSERTIONS
+│
+├── Web-first Assertions
+│   │
+│   ├── Visibility
+│   │    ├── toBeVisible()
+│   │    ├── toBeHidden()
+│   │    └── toBeAttached()
+│   │
+│   ├── State
+│   │    ├── toBeEnabled()
+│   │    ├── toBeDisabled()
+│   │    ├── toBeChecked()
+│   │    ├── toBeEditable()
+│   │    └── toBeEmpty()
+│   │
+│   ├── Content
+│   │    ├── toHaveText()
+│   │    ├── toContainText()
+│   │    └── toHaveValue()
+│   │
+│   ├── Properties
+│   │    ├── toHaveAttribute()
+│   │    ├── toHaveClass()
+│   │    └── toHaveCSS()
+│   │
+│   ├── Page
+│   │    ├── toHaveURL()
+│   │    └── toHaveTitle()
+│   │
+│   └── Count
+│        └── toHaveCount()
+│
+├── Generic Assertions
+│   ├── toBe()
+│   ├── toEqual()
+│   ├── toContain()
+│   ├── toBeTruthy()
+│   └── toBeFalsy()
+│
+├── Negative Assertion
+│   └── .not
+│
+└── Soft Assertion
+    └── expect.soft()
+
+
+Ek shortcut yaad rakho 🧠
+
+"Kya check karna hai → wahi assertion"
+
+Dikh raha? → toBeVisible
+Text kya hai? → toHaveText
+Input ki value kya hai? → toHaveValue
+URL kya hai? → toHaveURL
+Checkbox checked? → toBeChecked
+Button enabled? → toBeEnabled

@@ -1,0 +1,4 @@
+    test("Login", {tag:"@smoke"}, async({page,browserName}) => {
+
+
+ npx playwright test Demoweb.spec.js --grep "@smoke" --headed --project=chromium

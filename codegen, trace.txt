@@ -1,0 +1,37 @@
+command =   npx playwright codegen    ( is command ko terminal me run karo,  2 page open honge , 1st page pr aplication chlao action perform karo, 2nd page pr script automatic write hogi)
+
+trace = Trace basically Playwright में test execution की recording/details होती है।
+
+मतलब जब तुम्हारा test चलता है, Playwright उसके execution की important information save कर सकता है, ताकि बाद में तुम देख सको कि test के दौरान exactly क्या हुआ था।  use for debugging
+trace: 'off'
+trace: 'on'
+trace: 'on-first-retry'
+trace: 'on-all-retries'
+trace: 'retain-on-failure' 
+
+export default defineConfig({
+  retries: 1,
+  use: {
+    trace: 'on-first-retry'
+  }
+});
+
+step = npx playwright show-trace path/to/trace.zip    isko command ko chlane pr trace view open hote hai vaha meta data and action console logs sb hotye h
+
+
+screenshot =  await page.screenshot({
+            path: "screenshots/dashboard.png"
+        });
+
+
+
+
+
+video = config file video on krke code run kro. test result file me dhik jayegi video ka option
+Method 1 — VS Code se
+VS Code ke Explorer mein jao.
+test-results folder kholo.
+Apne test ke folder ko kholo.
+video.webm par right-click karo.
+Reveal in File Explorer select karo.
+Windows Explorer mein video.webm par double-click karo.

@@ -1,0 +1,27 @@
+auto-wait =  Auto-wait click ki conditions check karta hai ki button enable hai ya diable hai ,kya hm uspe click kr sakte hai kya then action perform hota hai.click() ke andar Playwright ka Auto-wait automatically kaam karta hai. (bydafult time 30 sec )  but agar timeout set kra just for 5 sec to to 5 sec k hisab se kaam krega
+
+.example( action timeout)  = await page.locator("#login").click({timeout: 10_000});
+
+async = 2 kaam ek sath hona but is prob ko await manage krta hai
+
+await = suppose hmare pass 2 kaam hai krne ko await Pehle first kaam complete hone tk wait krega then 2nd krega
+
+promise = await 100% response krega chay erroe de ya positive result de but dega.
+
+Static Timeout  Chahe test 1 second me ready ho ya 29 seconds me ready ho — Playwright 30 seconds wait karega.
+await page.waitForTimeout(5000);
+
+
+
+Navigation timout =  await page.goto("https://demowebshop.tricentis.com/", {timeout: 50_000 });
+
+2 = Global Test Timeout-   ye hm playwright ki config file me apply krte hai apne code me nahi , isse hr test case 50 sec tk wait krega fir
+export default defineConfig({
+    timeout: 60_000})
+3 = Global Timeout - globalTimeout poori Playwright test run ke liye maximum time set karta hai.
+
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+    globalTimeout: 60_000 });
+ 

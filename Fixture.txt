@@ -1,0 +1,52 @@
+Fixture - Fixture = test ko chalane se pehle required setup/resource ready karke dena, aur test ke baad uski cleanup karna.
+
+1 = 
+page fixture = test("Login test", async ({ page }) => {await page.goto("https://example.com");
+note : Normally agar Playwright fixture na deta, to hume browser/page khud create karna padta:
+
+const browser = await chromium.launch();       browser fixture
+
+const context = await browser.newContext();    context fixture
+const page = await context.newPage(); 
+
+await page.goto("https://example.com");
+await browser.close();
+
+Note = ab jo page fixture me bydefault ( just because pre setup by playwright ) browser launch ho raha hai vo browser fixture hai and same for context
+
+2 - browserName   example =     test.skip(browserName === "firefox","Test only runs in Chrome"
+
+
+4 = customize fixture - Suppose tumhe 2 users ko same test mein independently login karwana hai, 
+import {test, BrowserContext, Page, chromium, firefox} from '@playwright/test';
+
+test.describe("handle multiple browser windows", async()=> {
+
+    test("Scenario 1: One browser and 2 tabs", async({browser}) => {
+        test.setTimeout(60_000)
+        const context: BrowserContext = await browser.newContext()
+
+        const page1: Page = await context.newPage()
+        const page2: Page = await context.newPage()
+
+        // open dummy website for page1
+        await page1.goto("https://sqatools.in/dummy-booking-website/")
+        // open automation practice website on page2
+        await page2.goto("https://sqatools.in/automation-practice-page/")
+
+        await page1.locator("#fromcity").fill("Mumbai")
+        await page1.locator("#destcity").fill("Pune")
+
+        await page2.getByPlaceholder("Enter username").fill("facebookuser@gmail.com")
+        await page2.getByPlaceholder("Enter password").fill("User@12345")
+    })
+
+
+| Fixture       | Meaning                             |
+| ------------- | ----------------------------------- |
+| `page`        |page = normal single-tab testing                  |
+| `context`     | jab mujhe browser session ko control/isolate karna ho, especially multiple independent users/tabs/sessions.         |
+| `browser`     | Browser instance                    |
+| `browserName` | Current browser ka naam             |
+| `request`     | API testing ke liye request context |
+| `playwright`  | Playwright API object               |

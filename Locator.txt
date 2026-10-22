@@ -1,0 +1,34 @@
+1. Recommended / User-facing Locators
+getByRole()   ex - page.getByRole("button", { name: "Login" })
+button
+textbox
+link
+checkbox
+radio
+heading
+combobox
+
+getByText()  await page.getByText("Login").click();
+getByLabel()
+getByPlaceholder()   
+getByAltText()       
+getByTitle()
+getByTestId()
+
+2. CSS / XPath Locator
+CSS Selector
+#id     await page.locator("#username").fill("Admin");
+.class  page.locator(".login-btn")
+[attribute=value]   page.locator('input[name="username"]')
+tag         page.locator("button")
+tag.class   page.locator("button.login-btn")
+parent > child
+
+
+3.XPath
+absolute XPath
+relative XPath
+
+
+Strict Mode Violation Playwright ka error hai jo tab aata hai jab ek locator se multiple elements match ho jaate hain, lekin Playwright ko sirf ek
+element par action perform karna hota hai.

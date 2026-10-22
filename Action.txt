@@ -1,0 +1,27 @@
+| Action           | Use                         |
+| ---------------- | --------------------------- |
+| `click()`        | Click                       |
+| `fill()`         | Input mein value            |
+| `type()`         | Character-by-character type |
+| `press(enter)`        | Keyboard key                |
+| `check()`        | Checkbox/radio select       |
+| `uncheck()`      | Checkbox unselect           |
+| `selectOption()` | Dropdown                    |
+| `hover()`        | Mouse hover                 |
+| `dblclick()`     | Double click                |
+| `focus()`        | Element focus               |
+| `clear()`        | Input clear                 |
+| `dragTo()`       | Drag & drop                 |
+
+dropdown = <select id="country">
+    <option value="india">India</option>
+    <option value="usa">USA</option>
+</select>
+
+
+await page.locator("#country").selectOption("india");
+
+fill()	Input ko value dena
+type()	Text ko keyboard typing ki tarah enter karna
+
+example of drag  =   await page.locator("#boxA").dragTo(page.locator("#boxB"));

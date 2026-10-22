@@ -1,0 +1,31 @@
+locator  
+action
+assertion
+test suit 
+test step, skip
+Codegen
+Browser/context/page                                     with real project 
+Tags / annotations 
+hooks
+alert -iframe
+Screenshot, video, trace viewer  
+async/await
+AI
+
+
+API testing 
+Framework  - pom and data driven
+
+git and git hub
+git hub action 
+
+
+
+
+
+
+
+
+
+
+
